@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+/**
+ * 人机猜拳游戏
+ * 
+ */
+public class Game1 {
+
+	public static void main(String[] args) {
+		//1.导入Scanner类，搭建java外框架和java程序入口
+		Scanner sc = new Scanner(System.in);//创建Scanner对象
+		
+		//5.循环多次，while(true)
+		while(true){
+			//2.系统输出内容，然后系统接收用户出拳和电脑出拳
+			System.out.println("--猜拳游戏--");
+			System.out.println("1.石头  2.剪刀  3.布");
+			
+			int a = sc.nextInt();//接收用户出拳
+			
+			int b = (int) (Math.random()*3+1);//电脑出什么拳
+			
+			//3.将用户输入的数字用switch多分支结构进行匹配
+			String a_01 = "匹配用户出拳";
+			switch(a){
+			case 1:
+				a_01="石头";
+				break;
+			case 2:
+				a_01="剪刀";
+				break;
+			case 3:
+				a_01="布";
+				break;
+			case 99:
+				System.out.println("程序已退出");
+				System.exit(0);
+				break;
+			}
+			
+			String b_01 = "匹配电脑出拳";
+			switch(b){
+			case 1:
+				b_01="石头";
+				break;
+			case 2:
+				b_01="剪刀";
+				break;
+			case 3:
+				b_01="布";
+				break;
+			}
+			
+			
+			//4.用if条件语句对结果进行分析并输出
+			if(a==b){
+				System.out.println("你出的是"+a_01+","+"电脑出的是"+b_01);
+				
+				System.out.println("平局");
+			}else if(a==1&&b==2||a==2&&b==3||a==3&&b==1){
+				System.out.println("你出的是"+a_01+","+"电脑出的是"+b_01);
+				System.out.println("你赢了！");
+			}else{
+				System.out.println("你出的是"+a_01+","+"电脑出的是"+b_01);
+				System.out.println("你输了！");
+			}
+			System.out.println("退出请输入99\n");
+		}
+		
+	}
+}
